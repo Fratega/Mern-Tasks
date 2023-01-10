@@ -1,5 +1,7 @@
 // Archivo del servidor
 const express = require("express");
+const morgan = require("morgan");
+const router = require("./routes/task.routes");
 const app = express();
 
 // Settings 
@@ -7,8 +9,12 @@ const app = express();
 app.set('port', process.env.PORT || 3000) 
 
 // Middlewares = Funciones que se ejecutan antes de llegar a nuestras rutas
+app.use(morgan('dev'));
+app.use(express.json());
+
 
 // Routes
+app.use('/api/tasks', require('./routes/task.routes'));
 
 // Static Files
 
