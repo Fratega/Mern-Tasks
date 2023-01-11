@@ -1,7 +1,10 @@
 // Archivo del servidor
 const express = require("express");
 const morgan = require("morgan");
-const router = require("./routes/task.routes");
+const path = require("path")
+
+const { mongoose } = require('./database')
+
 const app = express();
 
 // Settings 
@@ -17,6 +20,9 @@ app.use(express.json());
 app.use('/api/tasks', require('./routes/task.routes'));
 
 // Static Files
+// Acá señalo que mi archivo estático est'a en esta dirección
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Levantando el servidor
 // Acá lo obtenemos luego de definirlo en settings
