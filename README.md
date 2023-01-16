@@ -1,2 +1,2 @@
 # Mern-Tasks
-Tasks
+Stack mern using MongoDB
